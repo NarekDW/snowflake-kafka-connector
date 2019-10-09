@@ -119,6 +119,12 @@ public class SnowflakeSinkTask extends SinkTask
   @Override
   public void open(final Collection<TopicPartition> partitions)
   {
+
+    LOGGER.info("\n\n\n");
+    LOGGER.info("OOOOPENOOOOPENOOOOPENOOOOPENOOOOPENOOOOPENOOOOPENOOOOPENOOOOPENOOOOPENOOOOPENOOOOPENOOOOPENOOOOPEN");
+    LOGGER.info("\n\n\n");
+
+
     LOGGER.info(Logging.logMessage(
       "SnowflakeSinkTask:open, TopicPartitions: {}", partitions
     ));
