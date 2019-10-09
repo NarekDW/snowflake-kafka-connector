@@ -180,12 +180,17 @@ public class SnowflakeSinkTask extends SinkTask
 
     Map<TopicPartition, OffsetAndMetadata> committedOffsets = new HashMap<>();
 
+    LOGGER.info("sink = " + sink);
+
     offsets.forEach(
       (topicPartition, offsetAndMetadata) ->
       {
         long offSet = sink.getOffset(topicPartition);
         if(offSet == 0)
         {
+          LOGGER.info("topicPartition = " + topicPartition);
+          LOGGER.info("offsetAndMetadata = " + offsetAndMetadata);
+
           committedOffsets.put(topicPartition, offsetAndMetadata);
           //todo: update offset?
         }
