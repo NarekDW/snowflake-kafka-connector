@@ -139,7 +139,8 @@ public class SnowflakeSinkTask extends SinkTask
       partition -> {
           LOGGER.info("partition = " + partition);
           String tableName = tableName(partition.topic(), topic2table);
-          sinkBuilder.addTask(tableName, partition.topic(), partition.partition());
+        LOGGER.info("XXX tableName = " + tableName);
+        sinkBuilder.addTask(tableName, partition.topic(), partition.partition());
       }
     );
 
