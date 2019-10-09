@@ -547,7 +547,10 @@ class SnowflakeSinkServiceV1 extends Logging implements SnowflakeSinkService
 
     private void recover()
     {
-      if (conn.pipeExist(pipeName))
+      boolean pipeExist = conn.pipeExist(pipeName);
+      logInfo("XXX conn.pipeExist(pipeName) = " + pipeExist);
+
+      if (pipeExist)
       {
         if (!conn.isPipeCompatible(tableName, stageName, pipeName))
         {
