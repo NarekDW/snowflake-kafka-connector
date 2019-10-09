@@ -131,8 +131,9 @@ public class SnowflakeSinkTask extends SinkTask
 
     partitions.forEach(
       partition -> {
-        String tableName = tableName(partition.topic(), topic2table);
-        sinkBuilder.addTask(tableName, partition.topic(), partition.partition());
+          LOGGER.info("partition = " + partition);
+          String tableName = tableName(partition.topic(), topic2table);
+          sinkBuilder.addTask(tableName, partition.topic(), partition.partition());
       }
     );
 
