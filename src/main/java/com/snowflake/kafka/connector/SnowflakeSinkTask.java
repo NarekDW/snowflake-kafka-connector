@@ -137,6 +137,10 @@ public class SnowflakeSinkTask extends SinkTask
     );
 
     sink = sinkBuilder.build();
+
+    LOGGER.info("\n\n\n");
+    LOGGER.info("sink = " + sink);
+    LOGGER.info("\n\n\n");
   }
 
 
