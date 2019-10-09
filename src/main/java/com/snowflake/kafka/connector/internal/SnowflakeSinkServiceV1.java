@@ -75,6 +75,8 @@ class SnowflakeSinkServiceV1 extends Logging implements SnowflakeSinkService
         conn, partition));
     }
 
+    logInfo("XXX StartTask Done");
+
   }
 
   @Override
