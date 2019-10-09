@@ -110,6 +110,8 @@ public class SnowflakeConnectionServiceV1 extends Logging
       stmt.close();
     } catch (SQLException e)
     {
+      logInfo(e.getMessage());
+
       logInfo("XXX ERROR " );
       throw SnowflakeErrors.ERROR_2001.getException(e);
     }
