@@ -55,7 +55,10 @@ class SnowflakeSinkServiceV1 extends Logging implements SnowflakeSinkService
                         final int partition)
   {
     String stageName = Utils.stageName(conn.getConnectorName(), tableName);
+    logInfo("XXX stageName = " + stageName);
     String nameIndex = topic + "_" + partition;
+    logInfo("XXX nameIndex = " + nameIndex);
+
     if (pipes.containsKey(nameIndex))
     {
       logError("task is already registered, name: {}", nameIndex);
@@ -64,6 +67,9 @@ class SnowflakeSinkServiceV1 extends Logging implements SnowflakeSinkService
     {
       String pipeName = Utils.pipeName(conn.getConnectorName(), tableName,
         partition);
+
+      logInfo("XXX pipeName = " + pipeName);
+
 
       pipes.put(nameIndex, new ServiceContext(tableName, stageName, pipeName,
         conn, partition));
