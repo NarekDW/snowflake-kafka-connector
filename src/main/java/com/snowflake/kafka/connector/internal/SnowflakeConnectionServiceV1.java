@@ -97,15 +97,20 @@ public class SnowflakeConnectionServiceV1 extends Logging
     {
       query = "create pipe if not exists identifier(?) ";
     }
+
+    logInfo("XXX query = " + query);
     try
     {
       query += "as " + pipeDefinition(tableName, stageName);
+      logInfo("XXX query = " + query);
+
       PreparedStatement stmt = conn.prepareStatement(query);
       stmt.setString(1, pipeName);
       stmt.execute();
       stmt.close();
     } catch (SQLException e)
     {
+      logInfo("XXX ERROR " );
       throw SnowflakeErrors.ERROR_2001.getException(e);
     }
     logInfo("create pipe: {}", pipeName);
