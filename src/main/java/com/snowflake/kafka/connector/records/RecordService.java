@@ -108,6 +108,8 @@ public class RecordService extends Logging
     }
 
     //include String key
+    logInfo(record.toString());
+    logInfo(record.keySchema().toString());
     if (record.keySchema().toString().equals(Schema.STRING_SCHEMA.toString())
       && record.key() != null)
     {
